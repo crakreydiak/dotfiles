@@ -15,7 +15,8 @@
  */
 #include QMK_KEYBOARD_H
 
-#define ESCTL LCTL_T(KC_ESC)
+#define ESCTL  CTL_T(KC_ESC)
+#define ESLSFT SFT_T(KC_ESC)
 
 enum {
     TD_ACCENT_E,
@@ -57,6 +58,9 @@ tap_dance_action_t tap_dance_actions[] = {
 #define TD_U TD(TD_ACCENT_U)
 #define TD_C TD(TD_ACCENT_C)
 
+#define LWR_SPC LT(1, KC_SPC)
+#define RSE_ENT LT(2, KC_ENT)
+
 const uint16_t PROGMEM LY_LWR = MO(1);
 const uint16_t PROGMEM LY_RSE = MO(2);
 
@@ -71,9 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Default layer: http://www.keyboard-layout-editor.com/##@_name=Split%203x6%20+%203%20thumb%20keys%20layout,%20lower%20layer&author=https%2F:%2F%2F%2F%2Fgithub.com%2F%2Fbcat&plate:false%3B&@_x:3%3B&=%23&_x:7%3B&=i%3B&@_y:-0.9&x:2%3B&=%2F@%3B&@_y:-1&x:4%3B&=$&_x:5%3B&=u&_x:1%3B&=o%3B&@_y:-0.9000000000000001&x:5%3B&=%25&_x:3%3B&=y%3B&@_y:-0.8999999999999999%3B&=Tab&=!&_x:11%3B&=p&=Back%0A%0A%0A%0A%0A%0Aspace%3B&@_y:-0.30000000000000004&x:3%3B&=d&_x:7%3B&=k%3B&@_y:-0.8999999999999999&x:2%3B&=s&_x:1%3B&=f&_x:5%3B&=j&_x:1%3B&=l%3B&@_y:-0.9000000000000001&x:5%3B&=g&_x:3%3B&=h%3B&@_y:-0.9000000000000001%3B&=Left%0A%0A%0A%0A%0A%0AShift&=a&_x:11%3B&=%2F%3B%0A%0A%0A%0A%0A%0A%2F:&='%0A%0A%0A%0A%0A%0A%22%3B&@_y:-0.2999999999999998&x:3%3B&=c&_x:7%3B&=,%0A%0A%0A%0A%0A%0A%3C%3B&@_y:-0.8999999999999999&x:2%3B&=x&_x:1%3B&=v&_x:5%3B&=m&_x:1%3B&=.%0A%0A%0A%0A%0A%0A%3E%3B&@_y:-0.8999999999999999&x:5%3B&=b&_x:3%3B&=n%3B&@_y:-0.9000000000000004%3B&=Left%0A%0A%0A%0A%0A%0ACtrl&=z&_x:11%3B&=%2F%2F%0A%0A%0A%0A%0A%0A%3F&=Left%0A%0A%0A%0A%0A%0AAlt%3B&@_y:-0.19999999999999973&x:3.5%3B&=Super&_x:6%3B&=Esc%3B&@_r:15&rx:4.5&ry:4.1&y:-0.9999999999999996%3B&=LWR%3B&@_r:30&rx:5.4&ry:4.3&y:-1.5&x:0.09999999999999964&h:1.5%3B&=Space%3B&@_r:-30&rx:9.6&y:-1.5&x:-1.0999999999999996&h:1.5%3B&=Enter%3B&@_r:-15&rx:10.5&ry:4.1&y:-0.9999999999999996&x:-1%3B&=RSE*/
     [LAYER_DEFAULT] = LAYOUT_split_3x6_3(
         KC_TAB,   KC_Q,     KC_W,     TD_E,     KC_R,     KC_T,                         KC_Y,     TD_U,     KC_I,     KC_O,     KC_P,     KC_BSPC,
-        ESCTL,    TD_A,     KC_S,     KC_D,     KC_F,     KC_G,                         KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
-        KC_LSFT,  KC_Z,     KC_X,     TD_C,     KC_V,     KC_B,                         KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_LALT,
-                                             KC_LGUI,   LY_LWR,   KC_SPC,   KC_ENT,   LY_RSE,   KC_LGUI
+        ESLSFT,   TD_A,     KC_S,     KC_D,     KC_F,     KC_G,                         KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+        KC_LCTL,  KC_Z,     KC_X,     TD_C,     KC_V,     KC_B,                         KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_LALT,
+                                             KC_LGUI,   LY_LWR,   LWR_SPC,   RSE_ENT,   LY_RSE,   KC_LGUI
     ),
     /* Lower layer: http://www.keyboard-layout-editor.com/##@_name=Split%203x6%20+%203%20thumb%20keys%20layout,%20lower%20layer&author=https%2F:%2F%2F%2F%2Fgithub.com%2F%2Fbcat&plate:false%3B&@_x:3%3B&=%23&_x:7%3B&=*%3B&@_y:-0.9&x:2%3B&=%2F@%3B&@_y:-1&x:4%3B&=$&_x:5%3B&=%2F&&_x:1%3B&=(%3B&@_y:-0.9000000000000001&x:5%3B&=%25&_x:3%3B&=%5E%3B&@_y:-0.8999999999999999&g:true&a:7%3B&=&_g:false&a:4%3B&=!&_x:11%3B&=)&=Del%3B&@_y:-0.30000000000000004&x:3&g:true&a:7%3B&=&_x:7&g:false&a:4%3B&=+%3B&@_y:-0.8999999999999999&x:2&g:true&a:7%3B&=&_x:1%3B&=&_x:5&g:false&a:4%3B&=%2F_&_x:1%3B&=%7B%3B&@_y:-0.9000000000000001&x:5&g:true&a:7%3B&=&_x:3&g:false&a:4%3B&=%7C%3B&@_y:-0.9000000000000001&g:true&a:7%3B&=&=&_x:11&g:false&a:4%3B&=%7D&=~%3B&@_y:-0.2999999999999998&x:3&g:true&a:7%3B&=&_x:7&g:false&a:4%3B&=%2F=%3B&@_y:-0.8999999999999999&x:2&g:true&a:7%3B&=&_x:1%3B&=&_x:5&g:false&a:4%3B&=-&_x:1%3B&=%5B%3B&@_y:-0.8999999999999999&x:5%3B&=Super&_x:3%3B&=%5C%3B&@_y:-0.9000000000000004&g:true&a:7%3B&=&=&_x:11&g:false&a:4%3B&=%5D&=%60%3B&@_y:-0.19999999999999973&x:3.5&g:true&a:7%3B&=&_x:6%3B&=%3B&@_r:15&rx:4.5&ry:4.1&y:-0.9999999999999996%3B&=%3B&@_r:30&rx:5.4&ry:4.3&y:-1.5&x:0.09999999999999964&h:1.5%3B&=%3B&@_r:-30&rx:9.6&y:-1.5&x:-1.0999999999999996&h:1.5%3B&=%3B&@_r:-15&rx:10.5&ry:4.1&y:-0.9999999999999996&x:-1%3B&= */
     [LAYER_LOWER] = LAYOUT_split_3x6_3(
@@ -134,7 +138,6 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
                                                    {
                                                        0x00, 0x00, 0x00, 0xe0, 0x10, 0x10, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x78, 0x28, 0x08, 0x10, 0x20, 0x30, 0x08, 0x10, 0x20, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x04, 0x08, 0x10, 0x11, 0xf9, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x10, 0xb0, 0x50, 0x55, 0x20, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x0c, 0x10, 0x20, 0x28, 0x37, 0x02, 0x1e, 0x20, 0x20, 0x18, 0x0c, 0x14, 0x1e, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                                    }};
-
 
     /* animation */
     void animate_luna(void) {
