@@ -4,3 +4,4 @@ RGB_MATRIX_ENABLE = no  # per-key RGB and underglow
 WPM_ENABLE = yes
 BACKLIGHT_ENABLE = no
 CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes

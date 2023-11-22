@@ -13,7 +13,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #include QMK_KEYBOARD_H
 
 #define ESCTL LCTL_T(KC_ESC)
@@ -34,39 +33,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                         KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSPC,
         ESCTL,    KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                         KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                         KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_LALT,
-                                             KC_LCTL,   LY_LWR,   KC_SPC,   KC_ENT,   LY_RSE,   KC_LGUI
+                                             KC_LGUI,   LY_LWR,   KC_SPC,   KC_ENT,   LY_RSE,   KC_LGUI
     ),
     /* Lower layer: http://www.keyboard-layout-editor.com/##@_name=Split%203x6%20+%203%20thumb%20keys%20layout,%20lower%20layer&author=https%2F:%2F%2F%2F%2Fgithub.com%2F%2Fbcat&plate:false%3B&@_x:3%3B&=%23&_x:7%3B&=*%3B&@_y:-0.9&x:2%3B&=%2F@%3B&@_y:-1&x:4%3B&=$&_x:5%3B&=%2F&&_x:1%3B&=(%3B&@_y:-0.9000000000000001&x:5%3B&=%25&_x:3%3B&=%5E%3B&@_y:-0.8999999999999999&g:true&a:7%3B&=&_g:false&a:4%3B&=!&_x:11%3B&=)&=Del%3B&@_y:-0.30000000000000004&x:3&g:true&a:7%3B&=&_x:7&g:false&a:4%3B&=+%3B&@_y:-0.8999999999999999&x:2&g:true&a:7%3B&=&_x:1%3B&=&_x:5&g:false&a:4%3B&=%2F_&_x:1%3B&=%7B%3B&@_y:-0.9000000000000001&x:5&g:true&a:7%3B&=&_x:3&g:false&a:4%3B&=%7C%3B&@_y:-0.9000000000000001&g:true&a:7%3B&=&=&_x:11&g:false&a:4%3B&=%7D&=~%3B&@_y:-0.2999999999999998&x:3&g:true&a:7%3B&=&_x:7&g:false&a:4%3B&=%2F=%3B&@_y:-0.8999999999999999&x:2&g:true&a:7%3B&=&_x:1%3B&=&_x:5&g:false&a:4%3B&=-&_x:1%3B&=%5B%3B&@_y:-0.8999999999999999&x:5%3B&=Super&_x:3%3B&=%5C%3B&@_y:-0.9000000000000004&g:true&a:7%3B&=&=&_x:11&g:false&a:4%3B&=%5D&=%60%3B&@_y:-0.19999999999999973&x:3.5&g:true&a:7%3B&=&_x:6%3B&=%3B&@_r:15&rx:4.5&ry:4.1&y:-0.9999999999999996%3B&=%3B&@_r:30&rx:5.4&ry:4.3&y:-1.5&x:0.09999999999999964&h:1.5%3B&=%3B&@_r:-30&rx:9.6&y:-1.5&x:-1.0999999999999996&h:1.5%3B&=%3B&@_r:-15&rx:10.5&ry:4.1&y:-0.9999999999999996&x:-1%3B&= */
     [LAYER_LOWER] = LAYOUT_split_3x6_3(
-        _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,                      KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_DEL,
-        _______,  _______,  _______,  _______,  _______,  _______,                      KC_PIPE,  KC_UNDS,  KC_PLUS,  KC_LCBR,  KC_RCBR,  KC_TILD,
-        _______,  _______,  _______,  _______,  _______,  KC_LGUI,                      KC_BSLS,  KC_MINS,  KC_EQL,   KC_LBRC,  KC_RBRC,  KC_GRV,
+        _______,  KC_EXLM,     KC_AT,       KC_HASH,    KC_DLR,      KC_PERC,           KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_DEL,
+        _______,  _______,     _______,     _______,    _______,     _______,           KC_PIPE,  KC_UNDS,  KC_PLUS,  KC_LCBR,  KC_RCBR,  KC_TILD,
+        _______,  LCTL(KC_Z),  LCTL(KC_X),  LCTL(KC_C), LCTL(KC_V),  KC_LGUI,           KC_BSLS,  KC_MINS,  KC_EQL,   KC_LBRC,  KC_RBRC,  KC_GRV,
                                                 _______,  _______,  _______,  _______,  _______,  _______
     ),
     /* Raise layer: http://www.keyboard-layout-editor.com/##@_name=Split%203x6%20+%203%20thumb%20keys%20layout,%20lower%20layer&author=https%2F:%2F%2F%2F%2Fgithub.com%2F%2Fbcat&plate:false%3B&@_x:3%3B&=3&_x:7%3B&=8%3B&@_y:-0.9&x:2%3B&=2%3B&@_y:-1&x:4%3B&=4&_x:5%3B&=7&_x:1%3B&=9%3B&@_y:-0.9000000000000001&x:5%3B&=5&_x:3%3B&=6%3B&@_y:-0.8999999999999999&g:true%3B&=Tab&_g:false%3B&=1&_x:11%3B&=0&=Del%3B&@_y:-0.30000000000000004&x:3%3B&=Media%0A%0A%0A%0A%0A%0APrev&_x:7%3B&=Up%3B&@_y:-0.8999999999999999&x:2%3B&=Vol%0A%0A%0A%0A%0A%0ADown&_x:1%3B&=Play%0A%0A%0A%0A%0A%0APause&_x:5%3B&=Down&_x:1%3B&=Right%3B&@_y:-0.9000000000000001&x:5%3B&=Media%0A%0A%0A%0A%0A%0ANext&_x:3%3B&=Left%3B&@_y:-0.9000000000000001&g:true%3B&=Left%0A%0A%0A%0A%0A%0AShift&_g:false%3B&=Vol%0A%0A%0A%0A%0A%0AUp&_x:11%3B&=F11&=Del%3B&@_y:-0.2999999999999998&x:3%3B&=F3&_x:7%3B&=Page%0A%0A%0A%0A%0A%0AUp%3B&@_y:-0.8999999999999999&x:2%3B&=F2&_x:1%3B&=F5&_x:5%3B&=Page%0A%0A%0A%0A%0A%0ADown&_x:1%3B&=End%3B&@_y:-0.8999999999999999&x:5%3B&=F5&_x:3%3B&=Home%3B&@_y:-0.9000000000000004&g:true%3B&=Left%0A%0A%0A%0A%0A%0ACtrl&_g:false%3B&=BL%0A%0A%0A%0A%0A%0AToggle&_x:11%3B&=F12&=Insert%3B&@_y:-0.19999999999999973&x:3.5%3B&=Super&_x:6%3B&=Esc%3B&@_r:15&rx:4.5&ry:4.1&y:-0.9999999999999996%3B&=LWR%3B&@_r:30&rx:5.4&ry:4.3&y:-1.5&x:0.09999999999999964&h:1.5%3B&=Space%3B&@_r:-30&rx:9.6&y:-1.5&x:-1.0999999999999996&h:1.5%3B&=Enter%3B&@_r:-15&rx:10.5&ry:4.1&y:-0.9999999999999996&x:-1%3B&=RSE*/
     [LAYER_RAISE] = LAYOUT_split_3x6_3(
         KC_TAB,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                         KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_BSPC,
         KC_LSFT,  KC_VOLU,  KC_VOLD,  KC_MPRV,  KC_MPLY,  KC_MNXT,                      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_F11,   KC_DEL,
-        KC_LCTL,  BL_TOGG,  KC_F2,    KC_F3,    KC_F5,    KC_F5,                        KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_F12,   KC_INS,
+        KC_LCTL,  CG_SWAP,  CG_LNRM,  KC_F3,    KC_F5,    KC_F5,                        KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_F12,   KC_INS,
                                                 _______,  _______,  _______,  _______,  _______,  _______
     ),/* Adjust layer: http://www.keyboard-layout-editor.com/#/gists/77e7572e077b36a23eb2086017e16fee */
     //
 };
 
 #ifdef OLED_ENABLE
-
-/* 32 * 32 logo */
-static void render_logo(void) {
-    static const char PROGMEM hell_logo[] = {0x00, 0x80, 0xc0, 0xc0, 0x60, 0x60, 0x30, 0x30, 0x18, 0x1c, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x80, 0xe0, 0x78, 0x1e, 0x06, 0x00, 0x0c, 0x1c, 0x18, 0x30, 0x30, 0x60, 0x60, 0xc0, 0xc0, 0x80, 0x00, 0x01, 0x03, 0x07, 0x06, 0x0c, 0x0c, 0x18, 0x18, 0x30, 0x70, 0x60, 0x00, 0xc0, 0xf0, 0x3c, 0x0f, 0x03, 0x00, 0x00, 0x00, 0x00, 0x60, 0x70, 0x30, 0x18, 0x18, 0x0c, 0x0c, 0x06, 0x07, 0x03, 0x01, 0x00, 0xf8, 0xf8, 0x80, 0x80, 0x80, 0xf8, 0xf8, 0x00, 0x80, 0xc0, 0xc0, 0x40, 0xc0, 0xc0, 0x80, 0x00, 0xf8, 0xf8, 0x00, 0xf8, 0xf8, 0x00, 0x08, 0x38, 0x08, 0x00, 0x38, 0x08, 0x30, 0x08, 0x38, 0x00, 0x1f, 0x1f, 0x01, 0x01, 0x01, 0x1f, 0x1f, 0x00, 0x0f, 0x1f, 0x1a, 0x12, 0x1a, 0x1b, 0x0b, 0x00, 0x1f, 0x1f, 0x00, 0x1f, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
-    oled_write_raw_P(hell_logo, sizeof(hell_logo));
-}
-
-/* 32 * 14 os logos */
-static const char PROGMEM windows_logo[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xbc, 0xbc, 0xbe, 0xbe, 0x00, 0xbe, 0xbe, 0xbf, 0xbf, 0xbf, 0xbf, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x07, 0x0f, 0x0f, 0x00, 0x0f, 0x0f, 0x1f, 0x1f, 0x1f, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
-static const char PROGMEM mac_logo[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0xf0, 0xf8, 0xf8, 0xf8, 0xf0, 0xf6, 0xfb, 0xfb, 0x38, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x07, 0x0f, 0x1f, 0x1f, 0x0f, 0x0f, 0x1f, 0x1f, 0x0f, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
 
 /* KEYBOARD PET START */
 
@@ -207,8 +193,6 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 /* KEYBOARD PET END */
 
 static void print_logo_narrow(void) {
-    render_logo();
-
     /* wpm counter */
     uint8_t n = get_current_wpm();
     char    wpm_str[4];
@@ -224,14 +208,6 @@ static void print_logo_narrow(void) {
 }
 
 static void print_status_narrow(void) {
-    /* Print current mode */
-    oled_set_cursor(0, 0);
-    if (keymap_config.swap_lctl_lgui) {
-        oled_write_raw_P(mac_logo, sizeof(mac_logo));
-    } else {
-        oled_write_raw_P(windows_logo, sizeof(windows_logo));
-    }
-
     oled_set_cursor(0, 3);
 
     /* Print current layer */
@@ -247,7 +223,7 @@ static void print_status_narrow(void) {
             oled_write("LWR", false);
             break;
         case LAYER_RAISE:
-            oled_write("Movement", false);
+            oled_write("RSE", false);
             break;
         default:
             oled_write("Undef", false);
@@ -277,3 +253,78 @@ bool oled_task_user(void) {
 }
 
 #endif
+
+
+enum combos {
+    KL_GTE,
+    JH_LTE,
+    JK_ARROW,
+    WQ_VIM_SAVE_EXIT,
+    TY_PAREN,
+    GH_CRLY,
+    BN_BRACKETS
+};
+
+const uint16_t PROGMEM gte_combo[]           = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM jk_combo[]            = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM lte_combo[]           = {KC_J, KC_H, COMBO_END};
+const uint16_t PROGMEM vim_save_exit_combo[] = {KC_W, KC_Q, COMBO_END};
+const uint16_t PROGMEM ty_paren_combo[]      = {KC_T, KC_Y, COMBO_END};
+const uint16_t PROGMEM gh_crly_combo[]       = {KC_G, KC_H, COMBO_END};
+const uint16_t PROGMEM bn_brackets_combo[]   = {KC_B, KC_N, COMBO_END};
+
+combo_t key_combos[] = {
+    [KL_GTE]           = COMBO_ACTION(gte_combo),
+    [JH_LTE]           = COMBO_ACTION(lte_combo),
+    [JK_ARROW]         = COMBO_ACTION(jk_combo),
+    [WQ_VIM_SAVE_EXIT] = COMBO_ACTION(vim_save_exit_combo),
+    [TY_PAREN]         = COMBO_ACTION(ty_paren_combo),
+    [GH_CRLY]          = COMBO_ACTION(gh_crly_combo),
+    [BN_BRACKETS]      = COMBO_ACTION(bn_brackets_combo),
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch(combo_index) {
+        case JH_LTE:
+            if (pressed) {
+                SEND_STRING(">=");
+            }
+            break;
+        case KL_GTE:
+            if (pressed) {
+                SEND_STRING("=<");
+            }
+            break;
+        case JK_ARROW:
+            if (pressed) {
+                SEND_STRING("=>");
+            }
+            break;
+        case TY_PAREN:
+            if (pressed) {
+                SEND_STRING("()");
+                tap_code16(KC_LEFT);
+            }
+            break;
+        case GH_CRLY:
+            if (pressed) {
+                SEND_STRING("{}");
+                tap_code16(KC_LEFT);
+            }
+            break;
+        case BN_BRACKETS:
+            if (pressed) {
+                SEND_STRING("[]");
+                tap_code16(KC_LEFT);
+            }
+            break;
+        case WQ_VIM_SAVE_EXIT:
+            if (pressed) {
+                tap_code16(KC_ESC);
+                tap_code16(KC_COLON);
+                tap_code16(KC_W);
+                tap_code16(KC_Q);
+            }
+            break;
+    }
+}
