@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // DEFAULT LAYER
     [LAYER_DEFAULT] = LAYOUT_split_3x6_3(
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                         KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSPC,
-        KC_ESC,   GUI_A,    ALT_S,    LSFT_D,   LCTL_F,   KC_G,                         KC_H,     LCTL_J,   LSFT_K,   ALT_L,    KC_SCLN,  KC_QUOT,
+        KC_ESC,   GUI_A,    ALT_S,    LSFT_D,   LCTL_F,   KC_G,                         KC_H,     LCTL_J,   LSFT_K,   ALT_L,    GUI_SCLN, KC_QUOT,
         KC_LCTL,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                         KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_LALT,
                                              KC_LGUI,  KC_LSFT,   LWR_SPC,   RSE_ENT,   KC_BSPC,  KC_ESC
     ),
