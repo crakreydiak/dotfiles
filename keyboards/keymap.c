@@ -57,8 +57,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // LAYER RAISE
     [LAYER_RAISE] = LAYOUT_split_3x6_3(
         _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                         KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_BSPC,
-        _______,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MPLY,  KC_MNXT,                      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_F11,   KC_DEL,
-        _______,  CG_SWAP,  CG_LNRM,  KC_F3,    KC_F5,    KC_F5,                        _______,  _______,  _______,  _______,  KC_F12,   _______,
+        _______,  _______,  _______,  _______,  _______,  _______,                      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_F11,   KC_DEL,
+        _______,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MPLY,  KC_MNXT,                      CG_SWAP,  _______,  _______,  _______,  KC_F12,   _______,
                                                 _______,  _______,  _______,  _______,  _______,  _______
    ),
 };
@@ -188,46 +188,49 @@ bool oled_task_user(void) {
 
 
 enum combos {
-    KL_GTE,
-    JH_LTE,
-    JK_ARROW,
-    WQ_VIM_SAVE_EXIT,
+    GTE_COMBO,
+    LTE_COMBO,
+    ARROW_COMBO,
     TY_PAREN,
     GH_CRLY,
-    BN_BRACKETS
+    BN_BRACKETS,
+    VIM_Y2CB,
+    WQ_VIM_SAVE_EXIT,
 };
 
-const uint16_t PROGMEM gte_combo[]           = {KC_K, KC_L, COMBO_END};
-const uint16_t PROGMEM jk_combo[]            = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM lte_combo[]           = {KC_J, KC_H, COMBO_END};
+const uint16_t PROGMEM lte_combo[]           = {KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM arrow_combo[]         = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM gte_combo[]           = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM vim_save_exit_combo[] = {KC_W, KC_Q, COMBO_END};
 const uint16_t PROGMEM ty_paren_combo[]      = {KC_T, KC_Y, COMBO_END};
 const uint16_t PROGMEM gh_crly_combo[]       = {KC_G, KC_H, COMBO_END};
 const uint16_t PROGMEM bn_brackets_combo[]   = {KC_B, KC_N, COMBO_END};
+const uint16_t PROGMEM vim_y2cb[]            = {KC_Y, KC_U, COMBO_END};
 
 combo_t key_combos[] = {
-    [KL_GTE]           = COMBO_ACTION(gte_combo),
-    [JH_LTE]           = COMBO_ACTION(lte_combo),
-    [JK_ARROW]         = COMBO_ACTION(jk_combo),
-    [WQ_VIM_SAVE_EXIT] = COMBO_ACTION(vim_save_exit_combo),
-    [TY_PAREN]         = COMBO_ACTION(ty_paren_combo),
-    [GH_CRLY]          = COMBO_ACTION(gh_crly_combo),
-    [BN_BRACKETS]      = COMBO_ACTION(bn_brackets_combo),
+    [GTE_COMBO]           = COMBO_ACTION(gte_combo),
+    [LTE_COMBO]           = COMBO_ACTION(lte_combo),
+    [ARROW_COMBO]         = COMBO_ACTION(arrow_combo),
+    [TY_PAREN]            = COMBO_ACTION(ty_paren_combo),
+    [GH_CRLY]             = COMBO_ACTION(gh_crly_combo),
+    [BN_BRACKETS]         = COMBO_ACTION(bn_brackets_combo),
+    [VIM_Y2CB]            = COMBO_ACTION(vim_y2cb),
+    [WQ_VIM_SAVE_EXIT]    = COMBO_ACTION(vim_save_exit_combo),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
     switch(combo_index) {
-        case JH_LTE:
+        case LTE_COMBO:
             if (pressed) {
                 SEND_STRING(">=");
             }
             break;
-        case KL_GTE:
+        case GTE_COMBO:
             if (pressed) {
                 SEND_STRING("=<");
             }
             break;
-        case JK_ARROW:
+        case ARROW_COMBO:
             if (pressed) {
                 SEND_STRING("=>");
             }
@@ -258,6 +261,14 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 tap_code16(KC_Q);
             }
             break;
+        case VIM_Y2CB:
+            if (pressed) {
+                tap_code16(KC_COLON);
+                tap_code16(KC_LSFT);
+                tap_code16(KC_QUOT);
+                tap_code16(KC_Y);
+
+            }
     }
 }
 
